@@ -54,6 +54,7 @@ export default function ContactForm() {
         throw new Error("Failed to send message");
       }
     } catch (error) {
+      console.error("Error sending message:", error);
       setStatus("error");
     }
   };
