@@ -6,6 +6,7 @@ interface FormData {
   name: string;
   email: string;
   message: string;
+  contact_me_by_fax_only: boolean;
 }
 
 export default function ContactForm() {
@@ -13,12 +14,26 @@ export default function ContactForm() {
     name: "",
     email: "",
     message: "",
+    contact_me_by_fax_only: false,
   });
 
   const [status, setStatus] = useState<"loading" | "success" | "error" | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(e.target.name, e.target.value)
+    if (e.target.type == 'checkbox') {
+      if (e.target.checked) {
+        setFormData({
+          ...formData, [e.target.name]: true
+        })
+      } else {
+        setFormData({
+          ...formData, [e.target.name]: false
+        })
+      }
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value })
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +49,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "", contact_me_by_fax_only: false });
       } else {
         throw new Error("Failed to send message");
       }
@@ -47,6 +62,8 @@ export default function ContactForm() {
     <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow">
       <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
+        <input type="checkbox" name="contact_me_by_fax_only" value={formData.contact_me_by_fax_only} 
+          onChange={handleChange} className="hidden" value="1" tabIndex="-1" autoComplete="off" />
         <input
           type="text"
           name="name"
