@@ -9,7 +9,7 @@ export default function Home() {
       height={229}
       alt="Picture of the author"
     />
-      <p className="mt-10 text-white text-7xl text-center font-[family-name:var(--font-jersey10)]">a alinhar os pixeis ...</p>
+      <p className="mt-10 text-white text-7xl text-center font-[family-name:var(--font-jersey10)]">Teste ... a alinhar os pixeis ...</p>
     </div>
   );
 }
