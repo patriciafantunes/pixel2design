@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import LocaleSwitcher from './LocaleSwitcher'
 
 export default function Navigation() {
   return (
@@ -12,6 +13,7 @@ export default function Navigation() {
       />
       <Link href="/">Homepage</Link>
       <Link href="/services">Services</Link>
+      <LocaleSwitcher />
     </div>
   );
 }
