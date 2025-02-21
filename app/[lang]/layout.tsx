@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import { Jersey_10 } from "next/font/google";
 
 const jersey = Jersey_10({
