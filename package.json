@@ -14,13 +14,16 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@next/swc-darwin-x64": "^15.1.7",
+    "@sanity/client": "^6.28.0",
     "@sanity/image-url": "^1.1.0",
+    "@sanity/types": "^3.76.3",
     "@tailwindcss/postcss": "^4.0.5",
     "@vercel/speed-insights": "^1.1.0",
     "i18next": "^24.2.2",
     "next": "15.1.6",
     "next-i18next": "^15.4.2",
-    "next-sanity": "^9.8.55",
+    "next-sanity": "^0.8.5",
     "nodemailer": "^6.10.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -36,6 +39,6 @@
     "eslint-config-next": "15.1.6",
     "postcss": "^8.5.1",
     "tailwindcss": "^4.0.5",
-    "typescript": "^5"
+    "typescript": "^5.7.3"
   }
 }

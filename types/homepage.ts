@@ -2,11 +2,29 @@ export interface Section {
   preTitle: string,
   title: string, 
   description: string,
+  services: Service[],
+  packs: Pack[],
   ctaText: string,
-  ctaLink: string;
+  ctaLink: string,
 }
 
 export interface Homepage {
-  sections: Section[];
+  sections: Section[],
+}
+
+export interface Service {
+  title: string,
+  subtitle: string,
+  description: string,
+  image: string,
+  packs: Pack[],
+}
+
+export interface Pack {
+  title: string,
+  subtitle: string,
+  description: string,
+  image: string,
+  features: string[],
 }
 

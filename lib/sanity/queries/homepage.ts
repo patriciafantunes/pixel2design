@@ -1,7 +1,7 @@
 // Fetching data from Sanity
 
 import { client } from '../client'
-import {Lang} from '@/types/lang'
+import { Lang } from '@/types/lang'
 
 export const getHomepageData = async (locale: Lang) => {
   const query = `*[_type == "homepage"][0] {
@@ -10,7 +10,22 @@ export const getHomepageData = async (locale: Lang) => {
       "title": title[_key == $locale][0].value, 
       "description": description[_key == $locale][0].value,
       "ctaText": ctaText[_key == $locale][0].value,
-      ctaLink
+      ctaLink,
+      "services": services[]-> {
+        _id,
+        "title": title[_key == $locale][0].value, 
+        "subtitle": subtitle[_key == $locale][0].value, 
+        "description": description[_key == $locale][0].value, 
+        "image": image.asset->url
+      },
+      "packs": packs[]-> {
+        _id,
+        "title": title[_key == $locale][0].value, 
+        "subtitle": subtitle[_key == $locale][0].value, 
+        "description": description[_key == $locale][0].value, 
+        "image": image.asset->url,
+        features[]->
+      }
     }
   }`
 
