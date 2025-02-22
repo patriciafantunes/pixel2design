@@ -1,4 +1,6 @@
-import Image from "next/image";
+
+import Image from "next/image"
+import logo from '@/public/logo.png'
 import Link from "next/link";
 
 
@@ -30,7 +32,7 @@ export default function Footer() {
 			<div className="flex justify-between text-sm">
 				<div className="flex gap-x-8 items-center ">
 					<Image
-						src="/logo.png"
+						src={logo}
 						width={104}
 						height={52}
 						alt="Pixel2Design Logo"
