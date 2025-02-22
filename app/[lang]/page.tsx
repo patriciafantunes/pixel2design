@@ -20,8 +20,8 @@ export default async function Home({
       <div
       	className="bg-gradient">
       		{homepageData.sections.map((section, index) => (
-      		<div className={`text-center py-16 ${section.key == "about" ? "bg-white text-dark-purple" : "text-white"}`}>
-	          <div className="container" key={index}>
+      		<div key={index} className={`text-center py-16 ${section.key == "about" ? "bg-white text-dark-purple" : "text-white"}`}>
+	          <div className="container" >
 
 	            <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl ${section.key == "about" ? "text-royal-purple" : "text-white"}`}><span className="block text-4xl">{section.preTitle}</span>{section.title}</h2>
 	            <p className="mb-10">{section.description}</p>
