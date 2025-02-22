@@ -12,6 +12,16 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      container: {
+        center: true, // Centers the container
+        padding: '2rem', // Adjust padding as needed
+        screens: {
+          sm: '100%', // Set max width at different breakpoints
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+        },
+      },
     },
   },
   plugins: [],

@@ -1,8 +1,14 @@
+"use client"
+
 import Image from 'next/image'
 import Link from 'next/link'
 import LocaleSwitcher from './LocaleSwitcher'
+import { useParams } from "next/navigation";
 
 export default function Navigation() {
+  const params = useParams();
+  const lang = params?.lang || "pt"; // Extract locale from the route
+
   return (
     <div className="container flex gap-x-8 items-center uppercase">
       <Image
@@ -11,8 +17,8 @@ export default function Navigation() {
         height={52}
         alt="Pixel2Design Logo"
       />
-      <Link href="/">Homepage</Link>
-      <Link href="/services">Services</Link>
+      <Link href={`/${lang}/`}>Homepage</Link>
+      <Link href={`/${lang}/services`}>Services</Link>
       <LocaleSwitcher />
     </div>
   );
