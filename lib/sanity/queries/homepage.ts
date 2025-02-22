@@ -6,6 +6,7 @@ import { Lang } from '@/types/lang'
 export const getHomepageData = async (locale: Lang) => {
   const query = `*[_type == "homepage"][0] {
     sections[]{
+      key,
       "preTitle": preTitle[_key == $locale][0].value,
       "title": title[_key == $locale][0].value, 
       "description": description[_key == $locale][0].value,

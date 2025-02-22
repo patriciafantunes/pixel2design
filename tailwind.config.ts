@@ -11,6 +11,17 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'deep-indigo': '#2A1E5C',
+        'dark-purple': '#270C36',
+        'rose-red': '#EE4266',
+        'royal-purple': '#7806BA',
+        'soft-magenta': '#C856BC',
+        'muted-blue': '#9CB1CA',
+        'pale-blue': '#B9C9DA',
+        'off-white': '#F8F9FB',
+      },
+      backgroundImage: {
+        'gradient': 'linear-gradient(to bottom right, #EE4266, #7806BA)',
       },
       container: {
         center: true, // Centers the container
