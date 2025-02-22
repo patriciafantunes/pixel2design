@@ -1,4 +1,6 @@
 import ContactForm from "@/components/ContactForm";
+import Image from "next/image"
+import packIcon from '@/public/pack-icon.png'
 import { getHomepageData } from '@/lib/sanity/queries/homepage';
 import { Homepage } from '@/types/homepage'
 import { Lang } from '@/types/lang'
@@ -13,8 +15,6 @@ export default async function Home({
 
   if(!homepageData) return <p>Loading...</p>
 
-  	console.log(homepageData);
-
   return (
     <div>
       <div
@@ -23,14 +23,14 @@ export default async function Home({
       		<div key={index} className={`text-center py-16 ${section.key == "about" ? "bg-white text-dark-purple" : "text-white"}`}>
 	          <div className="container" >
 
-	            <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl ${section.key == "about" ? "text-royal-purple" : "text-white"}`}><span className="block text-4xl">{section.preTitle}</span>{section.title}</h2>
-	            <p className="mb-10">{section.description}</p>
+	            <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl ${section.key == "about" ? "text-royal-purple" : "text-white text-glow"}`}><span className="block text-4xl">{section.preTitle}</span>{section.title}</h2>
+	            <p className="mb-10 max-w-lg mx-auto">{section.description}</p>
 	            {section.services != null &&
 	              <div className="grid grid-cols-3 gap-x-12">
 	                {section.services.map((service, index) => (
 	                  <div key={index}>
-	                    <img className="max-h-[200px] mx-auto" src={service.image} alt="" />
-	                    <p>{service.title}</p>
+	                    <Image className="max-h-[180px] mx-auto" src={service.image} width={auto} height={180} alt="" />
+	                    <p className="font-[family-name:var(--font-jersey10)] text-glow text-4xl mt-4">{service.title}</p>
 	                    <p>{service.subtitle}</p>
 	                  </div>
 	                ))}
@@ -40,7 +40,8 @@ export default async function Home({
 	              <div className="grid grid-cols-3 gap-x-12 gap-y-6">
 	                {section.packs.map((pack, index) => (
 	                  <div key={index}>
-	                    <p>{pack.title}</p>
+	                  	<Image className={`mx-auto w-[120px] mt-4 ${index % 2 == 0 || index == 0 ? "" : "rotate-45"}`} src={packIcon} alt="icon"/>
+	                    <p className="font-[family-name:var(--font-jersey10)] text-glow text-2xl ">{pack.title}</p>
 	                    <p><span className="font-bold">{pack.subtitle}</span>: {pack.description}</p>
 	                  </div>
 	                ))}

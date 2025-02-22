@@ -41,6 +41,10 @@ body {
   background: linear-gradient(165deg, var(--color-rose-red) 6%, var(--color-royal-purple) 15%, var(--color-royal-purple) 45%, var(--color-deep-indigo) 60%);
 }
 
+.text-glow {
+  text-shadow: 0px 0px 30px #C856BC;
+}
+
 .container {
   margin: auto;
   padding-right: 1rem;
