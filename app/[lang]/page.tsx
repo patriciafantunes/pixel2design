@@ -29,7 +29,7 @@ export default async function Home({
 	              <div className="grid grid-cols-3 gap-x-12">
 	                {section.services.map((service, index) => (
 	                  <div key={index}>
-	                    <Image className="max-h-[180px] mx-auto" src={service.image} width={auto} height={180} alt="" />
+	                    <Image className="max-h-[180px] mx-auto" src={service.image} width={180} height={180} alt="" />
 	                    <p className="font-[family-name:var(--font-jersey10)] text-glow text-4xl mt-4">{service.title}</p>
 	                    <p>{service.subtitle}</p>
 	                  </div>
