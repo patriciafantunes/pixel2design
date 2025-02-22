@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { Jersey_10 } from "next/font/google";
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 const jersey = Jersey_10({
   subsets: ['latin'],
@@ -24,7 +26,9 @@ export default function RootLayout({
       <body
         className={`${jersey.variable} antialiased`}
       >
+      <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );
