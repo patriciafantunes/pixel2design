@@ -2,7 +2,8 @@
 import Image from "next/image"
 import packIcon from '@/public/pack-icon.png'
 import { getServicesData } from '@/lib/sanity/queries/services';
-import { Service } from '@/types/homepage'
+import { getComponentsData } from '@/lib/sanity/queries/components';
+import { Service, Component } from '@/types/homepage'
 import { Lang } from '@/types/lang'
 import { GradientIcon } from '@/components/GradientIcon'
 
@@ -13,15 +14,65 @@ export default async function Home({
 }) {
   const { lang } = await params;
   const servicesData: Service[] = await getServicesData(lang); 
+  const componentsData: Component[] = await getComponentsData(lang); 
 
   if(!servicesData) return <p>Loading...</p>
 
-    console.log(servicesData);
+    const otherServices = componentsData.find(({ key }) => key === "other-services");
+    const hero = componentsData.find(({ key }) => key === "hero-services");
+    const contact = componentsData.find(({ key }) => key === "contact-services");
+
+    console.log(componentsData);
 
   return (
     <>
+      {hero != null &&
+        <div>
+          <div className="container text-center py-10">
+            <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl`}><span className="block text-4xl">{hero.preTitle}</span>{hero.title}</h2>
+            <p className="mb-10 max-w-lg mx-auto">{hero.description}</p>
+          </div>
+        </div>
+      }
       {servicesData.map((service, index) => (
-        <div key={index} className={`py-16 ${index % 2 != 0 ? "bg-off-white" : "bg-white"}`}>
+        service.key == "ongoing" 
+        ? (
+          <div key={index} className="bg-linear-to-b from-royal-purple to-deep-indigo to-70% text-center text-white">
+            <div className="container py-16">
+              <h2 className="font-[family-name:var(--font-jersey10)] text-6xl">{service.title}</h2>
+              <h3 className="text-xl mb-5">{service.subtitle}</h3>
+              <p className="max-w-xl mx-auto">{service.description}</p>
+            </div>
+            <div className="bg-linear-to-r from-deep-indigo from-50% to-royal-purple to-50% py-10">
+              <div className="container text-left">
+              <p>Recomended projects</p>
+              <div className="flex items-stretch justify-between ">
+                {service.packs.map((pack, index) => (
+                  <div key={index} className={`w-1/2 relative px-4 ${index == 0 ? "bg-deep-indigo z-10" : "bg-royal-purple"}`}>
+                    <div className="flex items-center my-10 relative before:rounded-full before:w-100 before:-left-1/4 before:bg-linear-to-r before:from-royal-purple before:to-rose-red before:absolute before:-inset-1">
+                      <Image className="w-15 mr-3 relative" src={packIcon} alt={pack.title} />
+                      <h4 className="relative text-white text-2xl font-[family-name:var(--font-jersey10)]">{pack.title}</h4>
+                    </div>
+                    
+                    <div className="">
+                      {pack.features.map((feature, index) => (
+                        <div key={index} className="flex items-start justify-around mb-6">
+                          <GradientIcon className="w-[20px] mr-3 mt-1 " path="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                          <p className="w-[90%]">{(feature.featurename != null) && <span className="block text-xl text-deep-indigo">{feature.featurename}</span>}{(feature.description != null) && feature.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            </div>
+            
+          </div>
+        )
+
+
+        : <div key={index} className={`py-16 ${index % 2 != 0 ? "bg-off-white" : "bg-white"}`}>
           <div className="container">
             <div className="columns-2 items-center mb-5">
               <div>
@@ -57,6 +108,31 @@ export default async function Home({
           </div>
         </div>
       ))}
+      {otherServices != null &&
+        <div className="container text-center py-10">
+          <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl`}><span className="block text-4xl">{otherServices.preTitle}</span>{otherServices.title}</h2>
+          <p className="mb-10 max-w-lg mx-auto">{otherServices.description}</p>
+          <div className="columns-3 gap-10">
+            {otherServices.otherServices.map((service, index) => (
+              <div key={index} className="pb-10">
+                <h4>{service.title}</h4>
+                <p>{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      }
+      {contact != null &&
+        <div>
+          <div className="container text-center py-10">
+            <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl`}><span className="block text-4xl">{contact.preTitle}</span>{contact.title}</h2>
+            <p className="mb-10 max-w-lg mx-auto">{contact.description}</p>
+            <a 
+                className="bg-rose-red py-2 px-5 inline-block font-[family-name:var(--font-jersey10)] text-off-white text-3xl rounded-sm shadow-[0px_4px_10px_0px_#270C36] mt-10" 
+                href={contact.ctaLink}>{contact.ctaText}</a>
+          </div>
+        </div>
+      }
     </>
   );
 }

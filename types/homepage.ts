@@ -14,6 +14,7 @@ export interface Homepage {
 }
 
 export interface Service {
+  key: string,
   title: string,
   subtitle: string,
   description: string,
@@ -30,5 +31,19 @@ export interface Pack {
     featurename: string,
     description: string
   }[],
+}
+
+export interface Component {
+  key: string,
+  preTitle: string,
+  title: string, 
+  description: string,
+  otherServices: {
+    title: string,
+    description: string,
+    image: string,
+  }[],
+  ctaText: string,
+  ctaLink: string,
 }
 

@@ -28,7 +28,7 @@ export default function Footer() {
 					</a>
 				</div>	
 			</div>
-			<div className="flex justify-center flex-col items-center">
+			<div className="flex justify-center flex-col items-center pb-5">
 				<hr className="w-10 border-pale-blue mb-3" />
 				<p className="text-xs italic">© {new Date().getFullYear()} All rights reserved</p>
 			</div>

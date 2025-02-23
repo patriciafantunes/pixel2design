@@ -11,7 +11,7 @@ export default function Navigation() {
   const lang = params?.lang || "pt"; // Extract locale from the route
 
   return (
-    <div className="container flex gap-x-8 items-center uppercase">
+    <div className="container flex gap-x-8 py-2 items-center uppercase">
       <Image
         src={logo}
         width={104}

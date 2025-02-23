@@ -4,30 +4,26 @@
 import { client } from '../client'
 import { Lang } from '@/types/lang'
 
-export const getServicesData = async (locale: Lang) => {
-  const query = `*[_type == "service"][] {
+export const getComponentsData = async (locale: Lang) => {
+  const query = `*[_type == "component"][] {
         _id,
   		key,
+        "preTitle": preTitle[_key == $locale][0].value, 
         "title": title[_key == $locale][0].value, 
-        "subtitle": subtitle[_key == $locale][0].value, 
         "description": description[_key == $locale][0].value, 
         "image": image.asset->url,
-  		packs[]-> {
-	        _id,
+  			"ctaText": ctaText[_key == $locale][0].value,
+  			ctaLink,
+  		otherServices[] {
 	        "title": title[_key == $locale][0].value, 
-	        "subtitle": subtitle[_key == $locale][0].value, 
 	        "description": description[_key == $locale][0].value, 
 	        "image": image.asset->url,
-	        features[] {
-  				"featurename": featurename[_key == $locale][0].value, 
-	        	"description": description[_key == $locale][0].value,
-	        }
 	      }
   }`
 
   const params = { locale };
 
-  const servicesData = await client.fetch(query, params);
+  const componentsData = await client.fetch(query, params);
 
-  return servicesData
+  return componentsData
 }
