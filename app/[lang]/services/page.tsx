@@ -27,8 +27,8 @@ export default async function Home({
   return (
     <>
       {hero != null &&
-        <div>
-          <div className="container text-center py-10">
+        <div className="bg-linear-to-br from-royal-purple via-deep-indigo to-deep-indigo">
+          <div className="container text-center text-white py-10">
             <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl`}><span className="block text-4xl">{hero.preTitle}</span>{hero.title}</h2>
             <p className="mb-10 max-w-lg mx-auto">{hero.description}</p>
           </div>
@@ -110,11 +110,12 @@ export default async function Home({
       ))}
       {otherServices != null &&
         <div className="container text-center py-10">
-          <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl`}><span className="block text-4xl">{otherServices.preTitle}</span>{otherServices.title}</h2>
+          <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl text-rose-red`}><span className="block text-4xl text-dark-purple">{otherServices.preTitle}</span>{otherServices.title}</h2>
           <p className="mb-10 max-w-lg mx-auto">{otherServices.description}</p>
           <div className="columns-3 gap-10">
             {otherServices.otherServices.map((service, index) => (
               <div key={index} className="pb-10">
+                <GradientIcon className="" path={service.svg} viewBox={service.svgviewbox} />
                 <h4>{service.title}</h4>
                 <p>{service.description}</p>
               </div>
@@ -123,8 +124,8 @@ export default async function Home({
         </div>
       }
       {contact != null &&
-        <div>
-          <div className="container text-center py-10">
+        <div className="bg-linear-to-br from-rose-red via-royal-purple to-deep-indigo">
+          <div className="container text-center text-white py-10">
             <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl`}><span className="block text-4xl">{contact.preTitle}</span>{contact.title}</h2>
             <p className="mb-10 max-w-lg mx-auto">{contact.description}</p>
             <a 

@@ -41,6 +41,8 @@ export interface Component {
   otherServices: {
     title: string,
     description: string,
+    svg: string,
+    svgviewbox: string,
     image: string,
   }[],
   ctaText: string,

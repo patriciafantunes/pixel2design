@@ -7,7 +7,7 @@ import { GradientIcon } from "@/components/GradientIcon"
 export default function Footer() {
 	return (
 		<footer className="container">
-			<div className="flex justify-between text-sm">
+			<div className="flex justify-between text-sm pt-5">
 				<div className="flex gap-x-8 items-center ">
 					<Image
 						src={logo}

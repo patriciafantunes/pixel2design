@@ -17,6 +17,7 @@ export const getComponentsData = async (locale: Lang) => {
   		otherServices[] {
 	        "title": title[_key == $locale][0].value, 
 	        "description": description[_key == $locale][0].value, 
+  				svg,
 	        "image": image.asset->url,
 	      }
   }`

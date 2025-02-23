@@ -1,12 +1,13 @@
 interface GradientIconProps {
   path: string;
   className?: string;
+  viewBox?: string;
 }
 
-export const GradientIcon = ({ path, className }: GradientIconProps) => (
+export const GradientIcon = ({ path, viewBox, className }: GradientIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 512 512"
+    viewBox={`${viewBox ? viewBox : "0 0 512 512"}`}
     className={className}
   >
     <defs>
