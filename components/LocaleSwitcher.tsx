@@ -15,8 +15,7 @@ export default function LocaleSwitcher() {
 
   return (
     <div>
-      <p>Locale switcher:</p>
-      <ul>
+      <ul className="flex self-end">
         {i18n.locales.map((locale) => {
           return (
             <li key={locale}>

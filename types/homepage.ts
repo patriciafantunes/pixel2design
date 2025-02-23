@@ -26,6 +26,9 @@ export interface Pack {
   subtitle: string,
   description: string,
   image: string,
-  features: string[],
+  features: {
+    featurename: string,
+    description: string
+  }[],
 }
 

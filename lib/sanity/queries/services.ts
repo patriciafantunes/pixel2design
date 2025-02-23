@@ -18,8 +18,8 @@ export const getServicesData = async (locale: Lang) => {
 	        "description": description[_key == $locale][0].value, 
 	        "image": image.asset->url,
 	        features[] {
-  				title,
-  				description
+  				"featurename": featurename[_key == $locale][0].value, 
+	        	"description": description[_key == $locale][0].value,
 	        }
 	      }
   }`
