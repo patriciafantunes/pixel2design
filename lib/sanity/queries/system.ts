@@ -7,7 +7,7 @@ import { Lang } from '@/types/lang'
 export const getSystemData = async (locale: Lang) => {
   const query = `*[_type == "systempages"][] {
         _id,
-  		key,
+  		  key,
         "title": title[_key == $locale][0].value, 
         "content": content[language == $locale].content[], 
   }`
