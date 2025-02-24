@@ -53,3 +53,9 @@ export interface Component {
   anchor: string,
 }
 
+export interface Header {
+  headerlinks: {
+    title: string,
+    slug: {current: string, _type: string},
+  }[],
+}

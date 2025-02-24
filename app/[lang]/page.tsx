@@ -4,7 +4,6 @@ import packIcon from '@/public/pack-icon.png';
 import { getHomepageData } from '@/lib/sanity/queries/homepage';
 import { Homepage } from '@/types/homepage'
 import { Lang } from '@/types/lang'
-import Link from 'next/link'
 
 export default async function Home({
   params,
