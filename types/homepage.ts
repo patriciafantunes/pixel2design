@@ -59,3 +59,12 @@ export interface Header {
     slug: {current: string, _type: string},
   }[],
 }
+
+export interface Footer {
+  footerlinks: {
+      title: string, 
+      slug: {current: string, _type: string}, 
+    }[],
+    copyright: string,
+    follow: string,
+}

@@ -8,9 +8,9 @@ interface FormData {
   email: string,
   message: string,
   contact_me_by_fax_only: boolean,
-    branding: boolean,
-    web: boolean,
-    social: boolean,
+  branding: boolean,
+  web: boolean,
+  social: boolean,
 }
 
 export default function ContactForm() {

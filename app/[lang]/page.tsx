@@ -54,10 +54,10 @@ export default async function Home({
         ))}
       	</div>
       	<div id="contact" className="relative overflow-hidden py-10">
-      		<video className="flex absolute right-0 top-0" autoPlay muted loop width="100%">         
+      		<video className="flex absolute right-0 top-0" autoPlay muted loop width="100%" height="100%">         
 				    <source src="/contacts-video.webm" type="video/webm"/>       
 					</video>
-	      	<div className="container relative flex justify-between">
+	      	<div className="container relative flex justify-between flex-col md:flex-row items-center md:items-stretch">
 	      		<div className="text-off-white flex flex-col justify-between">
 	      			<div>
 	      				<h2 className={`font-[family-name:var(--font-jersey10)] text-6xl text-glow`}>Have a project?</h2>

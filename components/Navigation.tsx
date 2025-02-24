@@ -25,7 +25,7 @@ export default function Navigation() {
         const data = await getHeaderLinks(lang);
         if (isMounted) {
           if (data) {
-            setHeader(data[0]);
+            setHeader(data);
             setError(null); // Clear any previous errors
           } else {
             setError('No header data found');
