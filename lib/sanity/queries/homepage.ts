@@ -12,6 +12,8 @@ export const getHomepageData = async (locale: Lang) => {
       "description": description[_key == $locale][0].value,
       "ctaText": ctaText[_key == $locale][0].value,
       ctaLink,
+      ctaSlug,
+      anchor,
       "services": services[]-> {
         _id,
         "title": title[_key == $locale][0].value, 

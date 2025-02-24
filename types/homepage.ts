@@ -7,6 +7,8 @@ export interface Section {
   packs: Pack[],
   ctaText: string,
   ctaLink: string,
+  ctaSlug: {current: string, _type: string},
+  anchor: string
 }
 
 export interface Homepage {
@@ -47,5 +49,7 @@ export interface Component {
   }[],
   ctaText: string,
   ctaLink: string,
+  ctaSlug: {current: string, _type: string},
+  anchor: string,
 }
 

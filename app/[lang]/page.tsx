@@ -4,6 +4,7 @@ import packIcon from '@/public/pack-icon.png';
 import { getHomepageData } from '@/lib/sanity/queries/homepage';
 import { Homepage } from '@/types/homepage'
 import { Lang } from '@/types/lang'
+import Link from 'next/link'
 
 export default async function Home({
   params,
@@ -48,12 +49,12 @@ export default async function Home({
 	            }
 	            <a 
 	            	className="bg-rose-red py-2 px-5 inline-block font-[family-name:var(--font-jersey10)] text-off-white text-3xl rounded-sm shadow-[0px_4px_10px_0px_#270C36] mt-10" 
-	            	href={section.ctaLink}>{section.ctaText}</a>
+	            	href={`/${lang}${section?.ctaSlug?.current ? `/${section.ctaSlug.current}` : ""}${section?.anchor ? `#${section.anchor}` : ""}`}>{section.ctaText}</a>
 	          </div>
           </div>
         ))}
       	</div>
-      	<div className="relative overflow-hidden py-10">
+      	<div id="contact" className="relative overflow-hidden py-10">
       		<video className="flex absolute right-0 top-0" autoPlay muted loop width="100%">         
 				    <source src="/contacts-video.webm" type="video/webm"/>       
 					</video>

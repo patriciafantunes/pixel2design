@@ -22,7 +22,7 @@ export default async function Home({
     const hero = componentsData.find(({ key }) => key === "hero-services");
     const contact = componentsData.find(({ key }) => key === "contact-services");
 
-    console.log(componentsData);
+
 
   return (
     <>
@@ -129,8 +129,11 @@ export default async function Home({
             <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl`}><span className="block text-4xl">{contact.preTitle}</span>{contact.title}</h2>
             <p className="mb-10 max-w-lg mx-auto">{contact.description}</p>
             <a 
-                className="bg-rose-red py-2 px-5 inline-block font-[family-name:var(--font-jersey10)] text-off-white text-3xl rounded-sm shadow-[0px_4px_10px_0px_#270C36] mt-10" 
-                href={contact.ctaLink}>{contact.ctaText}</a>
+                className="bg-rose-red py-2 px-5 inline-block font-[family-name:var(--font-jersey10)] text-off-white text-3xl rounded-sm shadow-[0px_4px_10px_0px_#270C36] mt-10"
+                href={`/${lang}${contact?.ctaSlug?.current ? `/${contact.ctaSlug.current}` : ""}${contact?.anchor ? `#${contact.anchor}` : ""}`}>
+              {contact.ctaText}
+            </a>
+        
           </div>
         </div>
       }

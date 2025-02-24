@@ -14,6 +14,8 @@ export const getComponentsData = async (locale: Lang) => {
         "image": image.asset->url,
   			"ctaText": ctaText[_key == $locale][0].value,
   			ctaLink,
+        ctaSlug,
+        anchor,
   		otherServices[] {
 	        "title": title[_key == $locale][0].value, 
 	        "description": description[_key == $locale][0].value, 
