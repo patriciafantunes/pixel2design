@@ -18,6 +18,7 @@ export const getComponentsData = async (locale: Lang) => {
 	        "title": title[_key == $locale][0].value, 
 	        "description": description[_key == $locale][0].value, 
   				svg,
+  				svgviewbox,
 	        "image": image.asset->url,
 	      }
   }`

@@ -72,7 +72,7 @@ export default async function Home({
         )
 
 
-        : <div key={index} className={`py-16 ${index % 2 != 0 ? "bg-off-white" : "bg-white"}`}>
+        : <div key={index} className={`py-16 overflow-hidden ${index % 2 != 0 ? "bg-off-white" : "bg-white"}`}>
           <div className="container">
             <div className="columns-2 items-center mb-5">
               <div>
@@ -97,7 +97,7 @@ export default async function Home({
                   {pack.features.map((feature, index) => (
                     <div key={index} className="flex items-start justify-around mb-6">
                       <GradientIcon className="w-[20px] mr-3 mt-1 " path="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
-                      <p className="w-[90%]">{(feature.featurename != null) && <span className="block text-xl text-deep-indigo">{feature.featurename}</span>}{(feature.description != null) && feature.description}</p>
+                      <p className="w-[90%]">{(feature.featurename != null) && <span className="block text-xl text-deep-indigo font-[family-name:var(--font-josefinsans)]">{feature.featurename}</span>}{(feature.description != null) && feature.description}</p>
                     </div>
                   ))}
                 </div>
@@ -115,8 +115,8 @@ export default async function Home({
           <div className="columns-3 gap-10">
             {otherServices.otherServices.map((service, index) => (
               <div key={index} className="pb-10">
-                <GradientIcon className="" path={service.svg} viewBox={service.svgviewbox} />
-                <h4>{service.title}</h4>
+                <GradientIcon className="h-20 m-auto mb-2" path={service.svg} viewBox={service.svgviewbox} />
+                <h4 className="font-[family-name:var(--font-josefinsans)]">{service.title}</h4>
                 <p>{service.description}</p>
               </div>
             ))}

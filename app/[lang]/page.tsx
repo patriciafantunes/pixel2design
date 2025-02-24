@@ -24,9 +24,9 @@ export default async function Home({
 	          <div className="container" >
 
 	            <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl ${section.key == "about" ? "text-royal-purple" : "text-white text-glow"}`}><span className="block text-4xl">{section.preTitle}</span>{section.title}</h2>
-	            <p className="mb-10 max-w-lg mx-auto">{section.description}</p>
+	            <p className={`mb-10 max-w-lg mx-auto ${section.key == "hero" ? "font-[family-name:var(--font-josefinsans)] text-2xl mt-2" : ""}`}>{section.description}</p>
 	            {section.services != null &&
-	              <div className="grid grid-cols-3 gap-x-12">
+	              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 ">
 	                {section.services.map((service, index) => (
 	                  <div key={index}>
 	                    <Image className="max-h-[180px] w-[180px] object-contain mx-auto" src={service.image} width={180} height={180} alt="" />
@@ -37,7 +37,7 @@ export default async function Home({
 	              </div>
 	            }
 	            {section.packs != null &&
-	              <div className="grid grid-cols-3 gap-x-12 gap-y-6">
+	              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6">
 	                {section.packs.map((pack, index) => (
 	                  <div key={index} className="mb-4">
 	                  	<Image className={`mx-auto w-[120px] ${index % 2 == 0 || index == 0 ? "" : "rotate-45"}`} src={packIcon} alt="icon"/>

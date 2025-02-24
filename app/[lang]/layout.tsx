@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { Jersey_10 } from "next/font/google";
+import { Jersey_10, Josefin_Sans } from "next/font/google";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 const jersey = Jersey_10({
   subsets: ['latin'],
   variable: '--font-jersey10',
+  weight: "400",
+  display: 'swap',
+})
+
+const josefin = Josefin_Sans({
+  subsets: ['latin'],
+  variable: '--font-josefinsans',
   weight: "400",
   display: 'swap',
 })
@@ -24,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <body
-        className={`${jersey.variable} antialiased`}
+        className={`${jersey.variable} ${josefin.variable} antialiased`}
       >
       <Navigation />
         {children}
