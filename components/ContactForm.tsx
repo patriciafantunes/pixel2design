@@ -3,10 +3,14 @@
 import { useState } from "react";
 
 interface FormData {
-  name: string;
-  email: string;
-  message: string;
-  contact_me_by_fax_only: boolean;
+  name: string,
+  company: string,
+  email: string,
+  message: string,
+  contact_me_by_fax_only: boolean,
+    branding: boolean,
+    web: boolean,
+    social: boolean,
 }
 
 export default function ContactForm() {
@@ -14,7 +18,11 @@ export default function ContactForm() {
     name: "",
     email: "",
     message: "",
+    company: "",
     contact_me_by_fax_only: false,
+    branding: false,
+    web: false,
+    social: false,
   });
 
   const [status, setStatus] = useState<"loading" | "success" | "error" | null>(null);
@@ -49,7 +57,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", message: "", contact_me_by_fax_only: false });
+        setFormData({ name: "", company: "", email: "", message: "", contact_me_by_fax_only: false, branding: false, web: false, social: false, });
       } else {
         throw new Error("Failed to send message");
       }
@@ -60,16 +68,39 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow">
-      <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+    <div className="max-w-lg p-6 bg-white rounded-lg shadow">
       <form onSubmit={handleSubmit} className="space-y-4">
         <input type="checkbox" name="contact_me_by_fax_only" checked={formData.contact_me_by_fax_only} 
           onChange={handleChange} className="hidden" tabIndex={-1} autoComplete="off" />
+
+          <p>How can we help?</p>
+          <div>
+            <input type="checkbox" name="branding" id="branding" checked={formData.branding} onChange={handleChange} />
+            <label htmlFor="branding">Branding</label>
+          </div>
+          <div>
+            <input type="checkbox" name="web" id="web" checked={formData.web} onChange={handleChange} />
+            <label htmlFor="web">Web Design</label>
+          </div>
+          <div>
+            <input type="checkbox" name="social" id="social" checked={formData.social} onChange={handleChange} />
+            <label htmlFor="social">Social Media Content</label>
+          </div>
+
         <input
           type="text"
           name="name"
           placeholder="Your Name"
           value={formData.name}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border rounded"
+        />
+        <input
+          type="text"
+          name="company"
+          placeholder="Your Company"
+          value={formData.company}
           onChange={handleChange}
           required
           className="w-full p-2 border rounded"
@@ -93,7 +124,7 @@ export default function ContactForm() {
         />
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+          className="bg-rose-red py-2 px-5 mx-auto block font-[family-name:var(--font-jersey10)] text-off-white text-3xl rounded-sm shadow-[0px_4px_10px_0px_#270C36]"
           disabled={status === "loading"}
         >
           {status === "loading" ? "Sending..." : "Send Message"}

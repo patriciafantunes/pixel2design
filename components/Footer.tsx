@@ -1,10 +1,14 @@
-
+"use client"
 import Image from "next/image"
 import logo from '@/public/logo.png'
 import Link from "next/link";
 import { GradientIcon } from "@/components/GradientIcon"
+import { useParams } from "next/navigation";
 
 export default function Footer() {
+	const params = useParams();
+  	const lang = params?.lang || "pt"; // Extract locale from the route
+
 	return (
 		<footer className="container">
 			<div className="flex justify-between text-sm pt-5">
@@ -15,8 +19,8 @@ export default function Footer() {
 						height={52}
 						alt="Pixel2Design Logo"
 					/>
-					<Link href="/terms">Terms & Conditions</Link>
-					<Link href="/privacy">Privacy Policy</Link>
+					<Link href={`/${lang}/terms`}>Terms & Conditions</Link>
+					<Link href={`/${lang}/privacy`}>Privacy Policy</Link>
 				</div>
 				<div className="flex items-center gap-x-4">
 					<p>Follow us on</p>

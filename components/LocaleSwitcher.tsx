@@ -15,10 +15,10 @@ export default function LocaleSwitcher() {
 
   return (
     <div>
-      <ul className="flex self-end">
+      <ul className="flex gap-x-4">
         {i18n.locales.map((locale) => {
           return (
-            <li key={locale}>
+            <li key={locale} className={`font-bold hover:text-rose-red`}>
               <Link href={redirectedPathname(locale)}>{locale}</Link>
             </li>
           );

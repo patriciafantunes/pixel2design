@@ -1,6 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import Image from "next/image"
-import packIcon from '@/public/pack-icon.png'
+import packIcon from '@/public/pack-icon.png';
 import { getHomepageData } from '@/lib/sanity/queries/homepage';
 import { Homepage } from '@/types/homepage'
 import { Lang } from '@/types/lang'
@@ -21,8 +21,7 @@ export default async function Home({
       	className="bg-gradient">
       		{homepageData.sections.map((section, index) => (
       		<div key={index} className={`text-center py-16 ${section.key == "about" ? "bg-white text-dark-purple" : "text-white"}`}>
-	          <div className="container" >
-
+	          <div className="container">
 	            <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl ${section.key == "about" ? "text-royal-purple" : "text-white text-glow"}`}><span className="block text-4xl">{section.preTitle}</span>{section.title}</h2>
 	            <p className={`mb-10 max-w-lg mx-auto ${section.key == "hero" ? "font-[family-name:var(--font-josefinsans)] text-2xl mt-2" : ""}`}>{section.description}</p>
 	            {section.services != null &&
@@ -54,7 +53,23 @@ export default async function Home({
           </div>
         ))}
       	</div>
-      <ContactForm />
+      	<div className="relative overflow-hidden py-10">
+      		<video className="flex absolute right-0 top-0" autoPlay muted loop width="100%">         
+				    <source src="/contacts-video.webm" type="video/webm"/>       
+					</video>
+	      	<div className="container relative flex justify-between">
+	      		<div className="text-off-white flex flex-col justify-between">
+	      			<div>
+	      				<h2 className={`font-[family-name:var(--font-jersey10)] text-6xl text-glow`}>Have a project?</h2>
+		      			<p className="text-2xl">We would love to help</p>
+	      			</div>
+		      		
+		      		<p>geral@pixel2design.pt</p>
+	      		</div>
+	      		<ContactForm />
+	      	</div>
+      	</div>
+      	
     </div>
   );
 }

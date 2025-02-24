@@ -46,6 +46,7 @@ body {
 
 .container {
   margin: auto;
+  max-width: 1200px;
   padding-right: 1rem;
   padding-left: 1rem;
 }
