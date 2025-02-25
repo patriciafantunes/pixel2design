@@ -68,3 +68,21 @@ export interface Footer {
     copyright: string,
     follow: string,
 }
+
+export interface ContactSection {
+  title: string,
+  subtitle: string,
+  email: string,
+  labelservices: string,
+  services: {
+    key: string,
+    title: string,
+  }[],
+  labelname: string,
+  labelcompany: string,
+  labelemail: string,
+  labelmessage: string,
+  button: string,
+}
+
+

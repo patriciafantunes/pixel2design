@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ContactSection } from '@/types/homepage'
 
 interface FormData {
   name: string,
@@ -13,7 +14,7 @@ interface FormData {
   social: boolean,
 }
 
-export default function ContactForm() {
+export default function ContactForm(data: ContactSection) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -28,7 +29,6 @@ export default function ContactForm() {
   const [status, setStatus] = useState<"loading" | "success" | "error" | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    console.log(e.target.name, e.target.value)
     if (e.target instanceof HTMLInputElement && e.target.type === "checkbox") {
       if (e.target.checked) {
         setFormData({
@@ -73,61 +73,70 @@ export default function ContactForm() {
         <input type="checkbox" name="contact_me_by_fax_only" checked={formData.contact_me_by_fax_only} 
           onChange={handleChange} className="hidden" tabIndex={-1} autoComplete="off" />
 
-          <p>How can we help?</p>
-          <div>
-            <input type="checkbox" name="branding" id="branding" checked={formData.branding} onChange={handleChange} />
-            <label htmlFor="branding">Branding</label>
-          </div>
-          <div>
-            <input type="checkbox" name="web" id="web" checked={formData.web} onChange={handleChange} />
-            <label htmlFor="web">Web Design</label>
-          </div>
-          <div>
-            <input type="checkbox" name="social" id="social" checked={formData.social} onChange={handleChange} />
-            <label htmlFor="social">Social Media Content</label>
-          </div>
+          <p>{data.labelservices}</p>
 
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="text"
-          name="company"
-          placeholder="Your Company"
-          value={formData.company}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
+          {data.services.map((service, index) => (
+            <div className="flex items-center" key={index}>
+              <input className="mr-2 w-5 h-5" type="checkbox" name={service.key} id={service.key} checked={formData[service.key as keyof FormData] as boolean} onChange={handleChange} />
+              <label htmlFor={service.key}>{service.title}</label>
+            </div>
+          ))}
+          
+
+          <div>
+            <label htmlFor="name">{data.labelname}</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full p-2 border rounded"
+            />
+          </div>
+          <div>
+            <label htmlFor="company">{data.labelcompany}</label><input
+              type="text"
+              name="company"
+              placeholder="Your Company"
+              value={formData.company}
+              onChange={handleChange}
+              required
+              className="w-full p-2 border rounded"
+            />
+          </div>
+          <div>
+            <label htmlFor="email">{data.labelemail}</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full p-2 border rounded"
+            />
+          </div>
+          <div>
+            <label htmlFor="message">{data.labelmessage}</label>
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="w-full p-2 border rounded"
+            />
+          </div>
+        
         <button
           type="submit"
           className="bg-rose-red py-2 px-5 mx-auto block font-[family-name:var(--font-jersey10)] text-off-white text-3xl rounded-sm shadow-[0px_4px_10px_0px_#270C36]"
           disabled={status === "loading"}
         >
-          {status === "loading" ? "Sending..." : "Send Message"}
+          {status === "loading" ? "Sending..." : `${data.button}`}
         </button>
       </form>
       {status === "success" && <p className="text-green-500 mt-2">Message sent!</p>}

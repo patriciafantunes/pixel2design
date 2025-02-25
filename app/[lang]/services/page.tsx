@@ -48,7 +48,7 @@ export default async function Home({
               {/*<p>Recomended projects</p>*/}
               <div className="flex items-stretch justify-between flex-wrap">
                 {service.packs.map((pack, index) => (
-                  <div key={index} className={`w-[100%] pb-11 md:w-1/2 relative px-4 ${index == 0 ? "bg-deep-indigo z-10" : "bg-royal-purple"}`}>
+                  <div key={index} className={`w-[100%] pb-11 md:w-1/2 relative px-4 ${index == 0 ? "md:bg-deep-indigo z-10" : "md:bg-royal-purple"}`}>
                     <div className="flex items-center my-10 relative before:rounded-full before:w-100 md:before:w-125 before:-left-1/4 md:before:-left-2/3 lg:before:-left-1/3 before:bg-linear-to-r before:from-royal-purple before:to-rose-red before:absolute before:-inset-1">
                       <Image className="w-15 mr-3 relative" src={packIcon} alt={pack.title} />
                       <h4 className="relative text-white text-2xl font-[family-name:var(--font-jersey10)]">{pack.title}</h4>

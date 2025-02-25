@@ -16,12 +16,12 @@
   --foreground: var(--color-dark-purple);
 }
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--color-doop-indigo);
+    --background: var(--color-deep-indigo);
     --foreground: var(--color-off-white);
   }
-}
+}*/
 
 html {
   scroll-behavior: smooth;
@@ -51,6 +51,6 @@ body {
 .container {
   margin: auto;
   max-width: 1200px;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
 }

@@ -50,7 +50,7 @@ export default function Footer() {
 
 	return (
 		<footer className="container">
-			<div className="flex justify-between text-sm pt-5">
+			<div className="flex justify-between flex-col md:flex-row items-center text-sm pt-5">
 				<div className="flex gap-x-8 items-center ">
 					<Image
 						src={logo}
@@ -59,7 +59,7 @@ export default function Footer() {
 						alt="Pixel2Design Logo"
 					/>
 					{footerData.footerlinks.map((link, index) => (
-						<Link key={index} href={`/${lang}${link?.slug?.current ? `/${link.slug.current}` : ""}`}>Terms & Conditions</Link>
+						<Link key={index} href={`/${lang}${link?.slug?.current ? `/${link.slug.current}` : ""}`}>{link.title}</Link>
 					))}
 					
 				</div>
