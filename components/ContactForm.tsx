@@ -67,8 +67,11 @@ export default function ContactForm(data: ContactSection) {
     }
   };
 
+  const classInputs = "peer placeholder-transparent w-full p-2 border-0 border-b-1 block transition-all focus:outline-0 focus:border-royal-purple"
+  const classInputsLabel = "block absolute pointer-events-none transition-all left-0 -top-3.5 text-royal-purple text-bold text-sm peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-royal-purple peer-focus:text-bold peer-placeholder-shown:text-base peer-placeholder-shown:text-dark-purple peer-placeholder-shown:top-2 peer-placeholder-shown:text-bold"
+
   return (
-    <div className="max-w-lg p-6 bg-white rounded-lg shadow">
+    <div className="max-w-lg w-full p-6 bg-white rounded-lg shadow">
       <form onSubmit={handleSubmit} className="space-y-4">
         <input type="checkbox" name="contact_me_by_fax_only" checked={formData.contact_me_by_fax_only} 
           onChange={handleChange} className="hidden" tabIndex={-1} autoComplete="off" />
@@ -77,14 +80,13 @@ export default function ContactForm(data: ContactSection) {
 
           {data.services.map((service, index) => (
             <div className="flex items-center" key={index}>
-              <input className="mr-2 w-5 h-5" type="checkbox" name={service.key} id={service.key} checked={formData[service.key as keyof FormData] as boolean} onChange={handleChange} />
+              <input className="mr-2 w-5 h-5 accent-royal-purple focus:accent-royal-purple" type="checkbox" name={service.key} id={service.key} checked={formData[service.key as keyof FormData] as boolean} onChange={handleChange} />
               <label htmlFor={service.key}>{service.title}</label>
             </div>
           ))}
           
 
-          <div>
-            <label htmlFor="name">{data.labelname}</label>
+          <div className="relative mt-8">
             <input
               type="text"
               id="name"
@@ -93,22 +95,24 @@ export default function ContactForm(data: ContactSection) {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded"
+              className={classInputs}
             />
+            <label className={classInputsLabel} htmlFor="name">{data.labelname}</label>
           </div>
-          <div>
-            <label htmlFor="company">{data.labelcompany}</label><input
+          <div className="relative mt-8">
+            <input
               type="text"
               name="company"
               placeholder="Your Company"
               value={formData.company}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded"
+              className={classInputs}
             />
+            <label className={classInputsLabel} htmlFor="company">{data.labelcompany}</label>
           </div>
-          <div>
-            <label htmlFor="email">{data.labelemail}</label>
+          <div className="relative mt-8">
+            
             <input
               type="email"
               name="email"
@@ -116,19 +120,20 @@ export default function ContactForm(data: ContactSection) {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded"
+              className={classInputs}
             />
+            <label className={classInputsLabel} htmlFor="email">{data.labelemail}</label>
           </div>
-          <div>
-            <label htmlFor="message">{data.labelmessage}</label>
+          <div className="relative mt-8">
             <textarea
               name="message"
               placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded"
+              className={classInputs}
             />
+             <label className={classInputsLabel} htmlFor="message">{data.labelmessage}</label>
           </div>
         
         <button
