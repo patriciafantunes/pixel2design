@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import { BgAnimation } from "@/components/BgAnimation"
 import Image from "next/image"
 import packIcon from '@/public/pack-icon.png';
 import { getHomepageData } from '@/lib/sanity/queries/homepage';
@@ -22,14 +23,15 @@ export default async function Home({
       <div
       	className="bg-gradient">
       		{homepageData.sections.map((section, index) => (
-      		<div key={index} className={`text-center py-16 ${section.key == "about" ? "bg-white text-dark-purple" : "text-white"}`}>
+      		<div key={index} className={`relative text-center py-16 ${section.key == "about" ? "bg-white text-dark-purple" : "text-white"}`}>
+      			{index == 0 && <BgAnimation />}
 	          <div className="container">
-	            <h2 className={`font-[family-name:var(--font-jersey10)] text-8xl ${section.key == "about" ? "text-royal-purple" : "text-white text-glow"}`}><span className="block text-4xl">{section.preTitle}</span>{section.title}</h2>
+	            <h2 className={`font-[family-name:var(--font-jersey10)] text-7xl/14 md:text-8xl/18  mb-2 ${section.key == "about" ? "text-royal-purple" : "text-white text-glow"}`}><span className="block text-3xl md:text-4xl">{section.preTitle}</span>{section.title}</h2>
 	            <p className={`mb-10 max-w-lg mx-auto ${section.key == "hero" ? "font-[family-name:var(--font-josefinsans)] text-2xl mt-2" : ""}`}>{section.description}</p>
 	            {section.services != null &&
 	              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 ">
 	                {section.services.map((service, index) => (
-	                  <div key={index}>
+	                  <div className="mt-8" key={index}>
 	                    <Image className="max-h-[180px] w-[180px] object-contain mx-auto" src={service.image} width={180} height={180} alt="" />
 	                    <p className="font-[family-name:var(--font-jersey10)] text-glow text-4xl mt-4">{service.title}</p>
 	                    <p>{service.subtitle}</p>
@@ -59,7 +61,7 @@ export default async function Home({
         ))}
       	</div>
       	<div id="contact" className="relative overflow-hidden py-10 before:w-full before:h-full before:absolute before:bg-royal-purple/50 before:z-1 before:top-0">
-      		<video className="flex absolute w-full h-full object-cover right-0 top-0 w" autoPlay muted playsInline webkit-playsinline loop width="100%" height="100%">         
+      		<video className="flex absolute w-full h-full object-cover right-0 top-0 w" autoPlay muted playsInline webkit-playsinline="true" loop width="100%" height="100%">         
 				    <source src="/contacts-video.webm" type="video/webm"/>       
 					</video>
 	      	<div className="container relative z-10 flex justify-between flex-col md:flex-row items-center md:items-stretch">
