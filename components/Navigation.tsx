@@ -77,7 +77,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-royal-purple/50 bg-opacity-50 transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-royal-purple/50 bg-opacity-50 transition-opacity duration-300 z-20 ${
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
@@ -85,7 +85,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform transition-transform duration-300 p-6 ${
+        className={`fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform transition-transform duration-300 p-6 z-30 ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

@@ -78,8 +78,8 @@ export default async function Home({
                   <h3 className="text-xl text-deep-indigo mb-5">{service.subtitle}</h3>
                   <p>{service.description}</p>
                 </div>
-                <div className="mx-auto md:ml-[10%] my-8 w-[250px] h-[250px] md:w-[70vw] md:h-[300px] flex items-center bg-linear-to-r from-royal-purple to-deep-indigo rounded-full">
-                  <Image className="floating w-[90%] mb-9.5 ml-7 md:mb-0 md:w-auto m-auto md:h-[320px] md:ml-[5%]" src={service.image} width={320} height={320} alt={service.title} />
+                <div className="mx-auto md:ml-[10%] my-8 w-[220px] h-[220px] md:w-[70vw] md:h-[300px] flex items-center bg-linear-to-r from-royal-purple to-deep-indigo rounded-full">
+                  <Image className="floating w-[90%] mb-9.5 md:mb-0 md:w-auto m-auto md:h-[320px] md:ml-[5%]" src={service.image} width={320} height={320} alt={service.title} />
                 </div>
               </div>
               
