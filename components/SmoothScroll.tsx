@@ -17,7 +17,7 @@ export default function SmoothScrollWrapper({ children }: { children: React.Reac
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-          smoothScroll(targetElement.offsetTop, 1000); // ✅ Scroll within the same page
+          smoothScroll(targetElement.offsetTop, 3000); // ✅ Scroll within the same page
         } else {
           const newPath = target.pathname + target.hash;
           router.push(newPath); // ✅ Navigate to the new page
@@ -34,7 +34,7 @@ export default function SmoothScrollWrapper({ children }: { children: React.Reac
       const targetId = window.location.hash.substring(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        setTimeout(() => smoothScroll(targetElement.offsetTop, 1000), 300); // Delay ensures page loads first
+        setTimeout(() => smoothScroll(targetElement.offsetTop, 3000), 300); // Delay ensures page loads first
       }
     }
   }, [pathname]);
