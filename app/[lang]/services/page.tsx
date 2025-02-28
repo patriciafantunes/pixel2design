@@ -5,7 +5,8 @@ import { getServicesData } from '@/lib/sanity/queries/services';
 import { getComponentsData } from '@/lib/sanity/queries/components';
 import { Service, Component } from '@/types/homepage'
 import { Lang } from '@/types/lang'
-import { GradientIcon } from '@/components/GradientIcon'
+import { GradientIcon } from '@/components/GradientIcon';
+import Link from 'next/link'
 
 export default async function Home({
   params,
@@ -127,11 +128,11 @@ export default async function Home({
           <div className="container text-center text-white py-10">
             <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl`}><span className="block text-4xl">{contact.preTitle}</span>{contact.title}</h2>
             <p className="mb-10 max-w-lg mx-auto">{contact.description}</p>
-            <a 
+            <Link
                 className="bg-rose-red py-2 px-5 inline-block font-[family-name:var(--font-jersey10)] text-off-white text-3xl rounded-sm shadow-[0px_4px_10px_0px_#270C36] mt-10"
                 href={`/${lang}${contact?.ctaSlug?.current ? `/${contact.ctaSlug.current}` : ""}${contact?.anchor ? `#${contact.anchor}` : ""}`}>
               {contact.ctaText}
-            </a>
+            </Link>
         
           </div>
         </div>

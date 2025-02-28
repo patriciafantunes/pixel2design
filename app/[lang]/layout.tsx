@@ -3,6 +3,7 @@ import "../globals.css";
 import { Jersey_10, Josefin_Sans } from "next/font/google";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import SmoothScrollWrapper from '@/components/SmoothScroll'
 
 const jersey = Jersey_10({
   subsets: ['latin'],
@@ -30,13 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
-      <body
-        className={`${jersey.variable} ${josefin.variable} antialiased`}
-      >
-      <Navigation />
-        {children}
-        <Footer />
-      </body>
+      <SmoothScrollWrapper>
+        <body
+          className={`${jersey.variable} ${josefin.variable} antialiased`}
+        >
+          <Navigation />
+          {children}
+          <Footer />
+        </body>
+      </SmoothScrollWrapper>
     </html>
   );
 }

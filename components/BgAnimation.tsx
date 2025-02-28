@@ -9,7 +9,7 @@ export function BgAnimation() {
 			<div className="h-3 w-3 rounded-full bg-white absolute top-[68%] left-[28%] animation-pulse delay-3"></div>
 			<div className="h-2 w-2 rounded-full bg-white absolute top-[34%] right-[2%] animation-pulse delay-2"></div>
 			<div className="h-3 w-3 rounded-full bg-white absolute top-[70%] right-[21%] animation-pulse"></div>
-			<div className="h-2 w-2 rounded-full bg-white absolute top-[85%] right-[10%] animation-pulse delay-3"></div>
+			<div className="h-2 w-2 rounded-full bg-white absolute top-[85%] right-[5%] md:right-[10%] animation-pulse delay-3"></div>
 			<div className="h-3 w-3 rounded-full bg-rose-red absolute hidden md:block top-[12%] left-[30%] animation-pulse delay-1"></div>
 			<div className="h-3 w-3 rounded-full bg-rose-red absolute top-[12%] right-[25%] animation-pulse"></div>
 			<div className="h-3 w-3 rounded-full bg-rose-red absolute top-[8%] right-[15%] animation-pulse delay-3"></div>
@@ -30,7 +30,7 @@ export function BgAnimation() {
 				<div className="w-2 h-8 absolute rounded-full bg-white shadow-lg shadow-soft-magenta"></div>
 				<div className="w-8 h-2 absolute rounded-full bg-white shadow-lg shadow-soft-magenta"></div>
 			</div>
-			<div className="w-8 h-8 flex justify-center items-center rotate-45 absolute top-[88%] md:top-[80%] left-[4%] md:left-[8%] lg:left-[14%] animation-rotate delay-5">
+			<div className="w-8 h-8 flex justify-center items-center rotate-45 absolute top-[92%] sm:top-[88%] md:top-[80%] left-[2%] sm:left-[4%] md:left-[8%] lg:left-[14%] animation-rotate delay-5">
 				<div className="w-2 h-8 absolute rounded-full bg-white shadow-lg shadow-soft-magenta"></div>
 				<div className="w-8 h-2 absolute rounded-full bg-white shadow-lg shadow-soft-magenta"></div>
 			</div>
