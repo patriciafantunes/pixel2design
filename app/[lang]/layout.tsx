@@ -6,6 +6,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import SmoothScrollWrapper from '@/components/SmoothScroll'
 import { getMeta } from '@/lib/sanity/queries/meta';
+import { Lang } from '@/types/lang'
 
 const jersey = Jersey_10({
   subsets: ['latin'],
@@ -21,7 +22,11 @@ const josefin = Josefin_Sans({
   display: 'swap',
 })
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: Lang }>;
+}) {
   const { lang } = await params;
   const metadata = await getMeta(lang);
 
