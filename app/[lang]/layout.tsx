@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+
 import { Analytics } from '@vercel/analytics/next';
 import "../globals.css";
 import { Jersey_10, Josefin_Sans } from "next/font/google";
@@ -22,7 +22,8 @@ const josefin = Josefin_Sans({
 })
 
 export async function generateMetadata({ params }) {
-  const metadata = await getMeta(params.lang);
+  const { lang } = await params;
+  const metadata = await getMeta(lang);
 
   return {
     title: metadata?.title || "Pixel2Design",
