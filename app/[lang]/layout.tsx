@@ -5,6 +5,7 @@ import { Jersey_10, Josefin_Sans } from "next/font/google";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import SmoothScrollWrapper from '@/components/SmoothScroll'
+import { getMeta } from '@/lib/sanity/queries/meta';
 
 const jersey = Jersey_10({
   subsets: ['latin'],
@@ -20,10 +21,19 @@ const josefin = Josefin_Sans({
   display: 'swap',
 })
 
-export const metadata: Metadata = {
-  title: "Pixel2Design",
-  description: "Coming soon",
-};
+export async function generateMetadata({ params }) {
+  const metadata = await getMeta(params.lang);
+
+  return {
+    title: metadata?.title || "Pixel2Design",
+    description: metadata?.metadescription || "Pixel2Design",
+    openGraph: {
+      title: metadata?.metatitle || "Pixel2Design",
+      description: metadata?.metadescription || "Pixel2Design",
+      images: metadata?.ogImage ? [metadata.ogImage] : [],
+    },
+  };
+}
 
 export default function RootLayout({
   children,
