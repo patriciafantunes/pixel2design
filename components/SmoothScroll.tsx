@@ -29,15 +29,7 @@ export default function SmoothScrollWrapper({ children }: { children: React.Reac
     return () => document.removeEventListener("click", handleClick);
   }, [pathname, router]);
 
-  useEffect(() => {
-    if (window.location.hash) {
-      const targetId = window.location.hash.substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        setTimeout(() => smoothScroll(targetElement.offsetTop, 3000), 300); // Delay ensures page loads first
-      }
-    }
-  }, [pathname]);
+  
 
   const smoothScroll = (targetY: number, duration: number) => {
     const startY = window.scrollY;

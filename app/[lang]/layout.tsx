@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from '@vercel/analytics/next';
 import "../globals.css";
 import { Jersey_10, Josefin_Sans } from "next/font/google";
 import Navigation from '@/components/Navigation';
@@ -38,6 +39,7 @@ export default function RootLayout({
           <Navigation />
           {children}
           <Footer />
+          <Analytics />
         </body>
       </SmoothScrollWrapper>
     </html>
