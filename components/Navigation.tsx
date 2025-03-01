@@ -67,6 +67,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Button */}
       <button
+        title="Menu"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         className="md:hidden flex flex-col gap-1.5"
       >

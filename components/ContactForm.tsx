@@ -102,11 +102,11 @@ export default function ContactForm(data: ContactSection) {
           <div className="relative mt-8">
             <input
               type="text"
+              id="company"
               name="company"
               placeholder="Your Company"
               value={formData.company}
               onChange={handleChange}
-              required
               className={classInputs}
             />
             <label className={classInputsLabel} htmlFor="company">{data.labelcompany}</label>
@@ -115,6 +115,7 @@ export default function ContactForm(data: ContactSection) {
             
             <input
               type="email"
+              id="email"
               name="email"
               placeholder="Your Email"
               value={formData.email}
@@ -127,6 +128,7 @@ export default function ContactForm(data: ContactSection) {
           <div className="relative mt-8">
             <textarea
               name="message"
+              id="message"
               placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}

@@ -28,6 +28,10 @@ function getLocale(request: NextRequest): Lang {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  if (request.method === "OPTIONS") {
+    return new NextResponse(null, { status: 200 });
+  }
+
   // Skip middleware for static files
   if (/\.(mp4|webm|png|jpg|jpeg|gif|svg|webp|ico|json|txt)$/i.test(pathname)) {
     return NextResponse.next(); // Allow Next.js to handle it normally
