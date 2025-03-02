@@ -16,6 +16,7 @@ export const getHomepageData = async (locale: Lang) => {
       anchor,
       "services": services[]-> {
         _id,
+        key,
         "title": title[_key == $locale][0].value, 
         "subtitle": subtitle[_key == $locale][0].value, 
         "description": description[_key == $locale][0].value, 

@@ -6,7 +6,6 @@ import { getComponentsData } from '@/lib/sanity/queries/components';
 import { Service, Component } from '@/types/homepage'
 import { Lang } from '@/types/lang'
 import { GradientIcon } from '@/components/GradientIcon';
-import Link from 'next/link'
 
 export default async function Home({
   params,
@@ -50,7 +49,7 @@ export default async function Home({
               <div className="flex items-stretch justify-between flex-wrap">
                 {service.packs.map((pack, index) => (
                   <div key={index} className={`w-[100%] pb-11 md:w-1/2 relative px-4 ${index == 0 ? "md:bg-deep-indigo z-10" : "md:bg-royal-purple"}`}>
-                    <div className="flex items-center my-10 relative before:rounded-full before:w-100 md:before:w-125 before:-left-1/4 md:before:-left-2/3 lg:before:-left-1/3 before:bg-linear-to-r before:from-royal-purple before:to-rose-red before:absolute before:-inset-1">
+                    <div className="flex items-center my-10 relative before:rounded-full before:w-[100vw] before:-left-[30vw] sm:before:-left-[50vw] md:before:-left-[65vw] xl:before:-left-[80vw] 2xl:before:-left-[85vw]  before:bg-linear-to-r before:from-royal-purple before:to-rose-red before:absolute before:-inset-1">
                       <Image className="w-15 mr-3 relative" src={packIcon} alt={pack.title} />
                       <h4 className="relative text-white text-2xl font-[family-name:var(--font-jersey10)]">{pack.title}</h4>
                     </div>
@@ -71,9 +70,9 @@ export default async function Home({
             
           </div>
         ) : (
-          <div key={index} className={`py-16 overflow-hidden ${index % 2 != 0 ? "bg-off-white" : "bg-white"}`}>
+          <div key={index} id={service.key} className={`py-16 overflow-hidden ${index % 2 != 0 ? "bg-off-white" : "bg-white"}`}>
             <div className="container">
-              <div className="clumns-1 md:columns-2 items-center mb-5">
+              <div className="columns-1 md:columns-2 items-center mb-5">
                 <div>
                   <h2 className="font-[family-name:var(--font-jersey10)] text-6xl text-rose-red">{service.title}</h2>
                   <h3 className="text-xl text-deep-indigo mb-5">{service.subtitle}</h3>
@@ -87,7 +86,7 @@ export default async function Home({
               {/*<p>Recomended projects</p>*/}
               {service.packs.map((pack, index) => (
                 <div key={index}>
-                  <div className="flex items-center my-10 relative before:rounded-full before:w-100 lg:before:w-1/2 before:-left-1/4 before:bg-linear-to-r before:from-royal-purple before:to-rose-red before:absolute before:-inset-1">
+                  <div className="flex items-center my-10 relative before:rounded-full before:w-[100vw] before:-left-[30vw] sm:before:-left-[50vw] md:before:-left-[65vw] xl:before:-left-[80vw] 2xl:before:-left-[85vw] before:bg-linear-to-r before:from-royal-purple before:to-rose-red before:absolute before:-inset-1">
                     <Image className="w-15 mr-3 relative" src={packIcon} alt={pack.title} />
                     <h4 className="relative text-white text-2xl font-[family-name:var(--font-jersey10)]">{pack.title}</h4>
                   </div>
@@ -128,11 +127,11 @@ export default async function Home({
           <div className="container text-center text-white py-10">
             <h2 className={`font-[family-name:var(--font-jersey10)] text-6xl`}><span className="block text-4xl">{contact.preTitle}</span>{contact.title}</h2>
             <p className="mb-10 max-w-lg mx-auto">{contact.description}</p>
-            <Link
+            <a 
                 className="bg-rose-red py-2 px-5 inline-block font-[family-name:var(--font-jersey10)] text-off-white text-3xl rounded-sm shadow-[0px_4px_10px_0px_#270C36] mt-10"
                 href={`/${lang}${contact?.ctaSlug?.current ? `/${contact.ctaSlug.current}` : ""}${contact?.anchor ? `#${contact.anchor}` : ""}`}>
               {contact.ctaText}
-            </Link>
+            </a>
         
           </div>
         </div>

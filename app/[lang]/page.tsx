@@ -32,21 +32,24 @@ export default async function Home({
 	              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 ">
 	                {section.services.map((service, index) => (
 	                  <div className="mt-8" key={index}>
-	                  	<div className="relative w-fit m-auto">
-	                  		<Image className="peer hover:scale-110 transition duration-400 ease-in-out max-h-[180px] h-auto w-[180px] object-contain mx-auto" src={service.image} width={180} height={180} alt={service.title} />
-	                  		<div className="h-2 w-2 rounded-full bg-white absolute top-5 -right-6 opacity-0 peer-hover:opacity-100 transition duration-800 ease-in-out"></div>
-	                  		<div className="w-6 h-6 flex justify-center items-center absolute top-1 -left-9 opacity-0 peer-hover:opacity-100 transition duration-700 ease-in-out">
-													<div className="w-1.5 h-6 absolute rounded-full bg-white shadow-lg shadow-soft-magenta"></div>
-													<div className="w-6 h-1.5 absolute rounded-full bg-white shadow-lg shadow-soft-magenta"></div>
-												</div>
-												<div className="h-3 w-3 rounded-full bg-rose-red absolute bottom-5 -left-7 opacity-0 peer-hover:opacity-100 transition duration-900 ease-in-out"></div>
-												<div className="h-5 w-5 gap-1 flex flex-wrap rotate-45 absolute bottom-4 -right-1 opacity-0 peer-hover:opacity-100 transition duration-600 ease-in-out">
-													<div className="w-2 h-2 bg-royal-purple"></div>
-													<div className="w-2 h-2 bg-royal-purple"></div>
-													<div className="w-2 h-2 bg-royal-purple"></div>
-													<div className="w-2 h-2 bg-royal-purple"></div>
-												</div>
-	                  	</div>
+	                		<a href={`/services#${service.key}`} title={`Go to ${service.title}`}>
+		                  	<div className="relative w-fit m-auto">
+		                  		<Image className="peer hover:scale-110 transition duration-400 ease-in-out max-h-[180px] h-auto w-[180px] object-contain mx-auto" src={service.image} width={180} height={180} alt={service.title} />
+		                  		<div className="h-2 w-2 rounded-full bg-white absolute top-5 -right-6 opacity-0 peer-hover:opacity-100 transition duration-800 ease-in-out"></div>
+		                  		<div className="w-6 h-6 flex justify-center items-center absolute top-1 -left-9 opacity-0 peer-hover:opacity-100 transition duration-700 ease-in-out">
+														<div className="w-1.5 h-6 absolute rounded-full bg-white shadow-lg shadow-soft-magenta"></div>
+														<div className="w-6 h-1.5 absolute rounded-full bg-white shadow-lg shadow-soft-magenta"></div>
+													</div>
+
+													<div className="h-3 w-3 rounded-full bg-rose-red absolute bottom-5 -left-7 opacity-0 peer-hover:opacity-100 transition duration-900 ease-in-out"></div>
+													<div className="h-5 w-5 gap-1 flex flex-wrap rotate-45 absolute bottom-4 -right-1 opacity-0 peer-hover:opacity-100 transition duration-600 ease-in-out">
+														<div className="w-2 h-2 bg-royal-purple"></div>
+														<div className="w-2 h-2 bg-royal-purple"></div>
+														<div className="w-2 h-2 bg-royal-purple"></div>
+														<div className="w-2 h-2 bg-royal-purple"></div>
+													</div>
+		                  	</div>
+	                  	</a>
 	                    
 	                    <p className="font-[family-name:var(--font-jersey10)] text-glow text-4xl mt-4">{service.title}</p>
 	                    <p>{service.subtitle}</p>
