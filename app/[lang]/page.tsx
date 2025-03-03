@@ -32,7 +32,7 @@ export default async function Home({
 	              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 ">
 	                {section.services.map((service, index) => (
 	                  <div className="mt-8" key={index}>
-	                		<a href={`/services#${service.key}`} title={`Go to ${service.title}`}>
+	                		<a href={`/${lang}/services#${service.key}`} title={`Go to ${service.title}`}>
 		                  	<div className="relative w-fit m-auto">
 		                  		<Image className="peer hover:scale-110 transition duration-400 ease-in-out max-h-[180px] h-auto w-[180px] object-contain mx-auto" src={service.image} width={180} height={180} alt={service.title} />
 		                  		<div className="h-2 w-2 rounded-full bg-white absolute top-5 -right-6 opacity-0 peer-hover:opacity-100 transition duration-800 ease-in-out"></div>
