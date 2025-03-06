@@ -31,7 +31,7 @@ export function middleware(request: NextRequest) {
     return new NextResponse(null, { status: 200 });
   }
 
-  if (/\.(mp4|webm|png|jpg|jpeg|gif|svg|webp|ico|json|txt)$/i.test(pathname)) {
+  if (/\.(mp4|webm|png|jpg|jpeg|gif|svg|webp|ico|json|txt|xml)$/i.test(pathname)) {
     return NextResponse.next();
   }
 

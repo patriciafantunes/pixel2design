@@ -1,53 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import logo from "@/public/logo.png";
 import Link from "next/link";
 import LocaleSwitcher from "./LocaleSwitcher";
-import { useParams } from "next/navigation";
-import { getHeaderLinks } from "@/lib/sanity/queries/header";
 import { Header } from "@/types/homepage";
-import { useState, useEffect } from "react";
-import { Lang } from "@/types/lang";
 
-export default function Navigation() {
-  const params = useParams();
-  const lang = (params?.lang as Lang) || "pt"; // Extract locale from the route
-
-  const [header, setHeader] = useState<Header | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile menu state
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function fetchHeaderLinks() {
-      try {
-        const data = await getHeaderLinks(lang);
-        if (isMounted) {
-          setHeader(data || null);
-          setError(data ? null : "No header data found");
-        }
-      } catch (error) {
-        if (isMounted) {
-          setError("Error fetching header links");
-          console.error("Error fetching header links:", error);
-        }
-      }
-    }
-
-    fetchHeaderLinks();
-    return () => {
-      isMounted = false;
-    };
-  }, [lang]);
-
-  if (error) return <p>{error}</p>;
-  if (!header) return <p>Loading...</p>;
+export default function Navigation({ header, lang }: { header: Header; lang: string }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <nav className="container flex justify-between items-center py-2">
-      {/* Left Section: Logo */}
+      {/* Logo */}
       <Link href={`/${lang}/`}>
         <Image src={logo} width={104} height={52} alt="Pixel2Design Logo" />
       </Link>
@@ -61,16 +26,12 @@ export default function Navigation() {
             </Link>
           ))}
         </div>
-        
+
         <LocaleSwitcher />
       </div>
 
       {/* Mobile Menu Button */}
-      <button
-        title="Menu"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="md:hidden flex flex-col gap-1.5"
-      >
+      <button title="Menu" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden flex flex-col gap-1.5">
         <span className={`block w-6 h-0.5 bg-black transition-transform duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
         <span className={`block w-6 h-0.5 bg-black transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-0" : "opacity-100"}`} />
         <span className={`block w-6 h-0.5 bg-black transition-transform duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
@@ -90,11 +51,8 @@ export default function Navigation() {
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <button
-          onClick={() => setIsMobileMenuOpen(false)}
-          className="absolute top-4 right-4 text-2xl"
-        >
-          &times; {/* Close (X) Icon */}
+        <button onClick={() => setIsMobileMenuOpen(false)} className="absolute top-4 right-4 text-2xl">
+          &times;
         </button>
 
         <div className="flex flex-col gap-y-6 mt-12 uppercase">
