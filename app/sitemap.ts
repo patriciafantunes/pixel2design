@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
- 
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -17,8 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       alternates: {
         languages: {
-          pt: 'https://acme.com/pt/services',
-          en: 'https://acme.com/en/services',
+          pt: 'https://pixel2design.pt/pt/services',
+          en: 'https://pixel2design.pt/en/services',
         },
       },
     },

@@ -145,3 +145,18 @@ body {
     padding-left: 1.5rem;
   }
 }
+
+.shadow-button:before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 230%;
+    background-color: var(--color-dark-purple);
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    clip-path: polygon(83% 0%, 0% 42%, 10% 177%, 30% 129%, 100% 100%);
+    
+}
+
+
