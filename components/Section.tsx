@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Services from "./Services";
 import Packs from "./Packs";
 import { BgAnimation } from "./BgAnimation";
