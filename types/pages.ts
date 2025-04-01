@@ -1,0 +1,1 @@
+export type Pages = "homepage" | "services" | "terms" | "privacy";

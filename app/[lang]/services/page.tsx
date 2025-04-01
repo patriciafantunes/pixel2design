@@ -5,9 +5,43 @@ import { getServicesData } from '@/lib/sanity/queries/services';
 import { getComponentsData } from '@/lib/sanity/queries/components';
 import { Service, Component } from '@/types/homepage'
 import { Lang } from '@/types/lang'
+import { Pages } from '@/types/pages'
 import { GradientIcon } from '@/components/GradientIcon';
+import { getMeta } from "@/lib/sanity/queries/meta";
 
-export default async function Home({
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: Lang }> ;
+}) {
+  const { lang } = await params; // 'params' já resolvido aqui
+
+  console.log(await params)
+
+
+  const metadata = await getMeta(lang || i18n.defaultLocale, "services");
+
+  console.log(metadata);
+
+  return {
+    metadataBase: new URL('https://pixel2design.pt/pt/services'),
+    alternates: {
+      canonical: '/pt/services',
+      languages: {
+        'pt-PT': '/pt/services',
+        'en-EN': '/en/services',
+      },
+    },
+    title: metadata?.title || "Pixel2Design",
+    description: metadata?.metadescription || "Pixel2Design",
+    openGraph: {
+      title: metadata?.metatitle || "Pixel2Design",
+      description: metadata?.metadescription || "Pixel2Design",
+    },
+  };
+}
+
+export default async function Services({
   params,
 }: {
   params: Promise<{ lang: Lang }>;
