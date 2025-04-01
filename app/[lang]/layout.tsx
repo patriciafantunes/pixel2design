@@ -32,11 +32,6 @@ export default async function RootLayout({
   params: Promise<{ lang: Lang }>;
 }>) {
   const { lang } = await params; // Usando diretamente 'params.lang', já resolvido
-    const isValidLocale = !lang || i18n.locales.includes(lang); // Permite a língua padrão
-
-  if (!isValidLocale) {
-    notFound();
-  }
 
   const header = await getHeaderLinks(lang || i18n.defaultLocale); // Fetch server-side
   const footerData = await getFooterData(lang || i18n.defaultLocale);

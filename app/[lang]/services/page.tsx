@@ -5,7 +5,6 @@ import { getServicesData } from '@/lib/sanity/queries/services';
 import { getComponentsData } from '@/lib/sanity/queries/components';
 import { Service, Component } from '@/types/homepage'
 import { Lang } from '@/types/lang'
-import { Pages } from '@/types/pages'
 import { GradientIcon } from '@/components/GradientIcon';
 import { getMeta } from "@/lib/sanity/queries/meta";
 
@@ -16,12 +15,8 @@ export async function generateMetadata({
 }) {
   const { lang } = await params; // 'params' já resolvido aqui
 
-  console.log(await params)
 
-
-  const metadata = await getMeta(lang || i18n.defaultLocale, "services");
-
-  console.log(metadata);
+  const metadata = await getMeta(lang, "services");
 
   return {
     metadataBase: new URL('https://pixel2design.pt/pt/services'),

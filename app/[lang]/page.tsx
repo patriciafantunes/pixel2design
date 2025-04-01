@@ -4,7 +4,6 @@ import { getHomepageData } from "@/lib/sanity/queries/homepage";
 import { getFormData } from "@/lib/sanity/queries/contactForm";
 import { Homepage, ContactSection as ContactData } from "@/types/homepage";
 import { Lang } from "@/types/lang";
-import { Pages } from "@/types/pages";
 import { getMeta } from "@/lib/sanity/queries/meta";
 import { i18n } from "../../i18n-config";
 
@@ -15,7 +14,7 @@ export async function generateMetadata({
 }) {
   const { lang } = await params; // 'params' já resolvido aqui
 
-  const metadata = await getMeta(lang || i18n.defaultLocale, "homepage");
+  const metadata = await getMeta(lang, "homepage");
 
   return {
     metadataBase: new URL('https://pixel2design.pt/pt'),
