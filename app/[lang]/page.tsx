@@ -15,10 +15,7 @@ export async function generateMetadata({
 }) {
   const { lang } = await params; // 'params' já resolvido aqui
 
-  console.log(await params)
-
-
-  const metadata = await getMeta(lang, "homepage");
+  const metadata = await getMeta(lang || i18n.defaultLocale, "homepage");
 
   return {
     metadataBase: new URL('https://pixel2design.pt/pt'),
