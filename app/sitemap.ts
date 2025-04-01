@@ -1,10 +1,12 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date().toISOString()
+
   return [
     {
-      url: 'https://pixel2design.pt',
-      lastModified: new Date(),
+      url: 'https://pixel2design.pt/pt',
+      lastModified,
       alternates: {
         languages: {
           pt: 'https://pixel2design.pt/pt',
@@ -13,8 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     },
     {
-      url: 'https://pixel2design.pt/services',
-      lastModified: new Date(),
+      url: 'https://pixel2design.pt/pt/services',
+      lastModified,
       alternates: {
         languages: {
           pt: 'https://pixel2design.pt/pt/services',
@@ -23,8 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     },
     {
-      url: 'https://pixel2design.pt/terms',
-      lastModified: new Date(),
+      url: 'https://pixel2design.pt/pt/terms',
+      lastModified,
       alternates: {
         languages: {
           pt: 'https://pixel2design.pt/pt/terms',
@@ -33,8 +35,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     },
     {
-      url: 'https://pixel2design.pt/privacy',
-      lastModified: new Date(),
+      url: 'https://pixel2design.pt/pt/privacy',
+      lastModified,
       alternates: {
         languages: {
           pt: 'https://pixel2design.pt/pt/privacy',
@@ -44,3 +46,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 }
+

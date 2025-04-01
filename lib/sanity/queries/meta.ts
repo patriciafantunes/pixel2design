@@ -3,9 +3,10 @@
 
 import { client } from '../client'
 import { Lang } from '@/types/lang'
+import { Pages } from '@/types/pages'
 
-export const getMeta = async (locale: Lang) => {
-  const query = `*[_type == "settings"][0] {
+export const getMeta = async (locale: Lang, page: Pages) => {
+  const query = `*[_type == "settings"][key == $page][0] {
       key,
       "title": title[_key == $locale][0].value, 
       "metatitle": metatitle[_key == $locale][0].value, 
@@ -13,7 +14,7 @@ export const getMeta = async (locale: Lang) => {
       "ogImage": ogImage.asset->url,  
   }`
 
-  const params = { locale };
+  const params = { locale, page };
 
   const metaData = await client.fetch(query, params);
 
